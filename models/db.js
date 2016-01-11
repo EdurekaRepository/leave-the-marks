@@ -4,9 +4,9 @@ var bcrypt=require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
 
-var dbURI = 'mongodb://localhost/test';
+//var dbURI = 'mongodb://localhost/test';
 
-//var dbURI = 'mongodb://jason:OracleJava1@ds037015.mongolab.com:37015/leavethemarks';
+var dbURI = 'mongodb://jason:OracleJava1@ds037015.mongolab.com:37015/leavethemarks';
 
 
 mongoose.connect(dbURI);
