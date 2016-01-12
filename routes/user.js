@@ -5,17 +5,16 @@ exports.registrationSuccessful=function(req,res){
   res.render('new-user');
                   }
 
-                  exports.logout=function(req,res){
-                    console.log("Logging  Out :"+req.session.username);
-                    var loggedOutUser=req.session.username;
-                    req.session.destroy();
-                    console.log("Logged Out :"+loggedOutUser);
-                    res.render('logout',{loggedOutUser:loggedOutUser});
-                                    }
+exports.logout=function(req,res){
+    console.log("Logging  Out :"+req.session.username);
+    var loggedOutUser=req.session.username;
+    req.session.destroy();
+    console.log("Logged Out :"+loggedOutUser);
+    res.render('logout',{loggedOutUser:loggedOutUser});
+}
 
 
 exports.doCreate=function(req,res){
-
    var username=req.body.username;
    var email=req.body.email;
    var password=req.body.password;
@@ -29,7 +28,6 @@ exports.doCreate=function(req,res){
        if(err){
          console.log("User already exists with that username or email");
          var message="A user already exists with that username or email";
-         console.log("Message :"+message);
          res.render("register",{errorMessage:message});
          return;
        }else{
@@ -60,7 +58,7 @@ exports.login=function(req,res){
          console.log("Authentication Sucessfull");
          req.session.username=user.username;
          req.session.loggedIn=true;
-         console.log("Got USer : "+req.session.username);
+         console.log("Got User : "+req.session.username);
          res.render("new-story",{session:req.session});
        }else{
          console.log("Authentication UnSucessfull");
@@ -69,8 +67,6 @@ exports.login=function(req,res){
          res.render("login",{errorMessage:message});
          return;
        }
-
      });
-
     });
   }

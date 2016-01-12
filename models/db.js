@@ -6,6 +6,7 @@ var SALT_WORK_FACTOR = 10;
 
 //var dbURI = 'mongodb://localhost/test';
 
+
 var dbURI = 'mongodb://jason:OracleJava1@ds037015.mongolab.com:37015/leavethemarks';
 
 
@@ -17,22 +18,21 @@ mongoose.connection.on('connected', function () {
 });
 
 mongoose.connection.on('error',function (err) {
-  console.log('Mongoose connection error: ' + err);
+  console.log(chalk.red('Mongoose connection error: ' + err));
 });
 
 mongoose.connection.on('disconnected', function () {
-  console.log('Mongoose disconnected');
+  console.log(chalk.red('Mongoose disconnected'));
 });
 
 
-/* ********************************************
-      USER SCHEMA
-   ******************************************** */
+
 var userSchema = new mongoose.Schema({
   username: {type: String, unique:true},
   email: {type: String, unique:true},
   password: String
 });
+
 
 userSchema.pre('save', function(next) {
     var user = this;
@@ -63,6 +63,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
+
 
 
 // Build the User model
