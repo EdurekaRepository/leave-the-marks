@@ -88,7 +88,19 @@
   <script>
     $(document).ready(function() {
         $('#storyContent').summernote({
-          height:250
+          height:250,
+          toolbar: [
+
+         ['style', ['bold', 'italic', 'underline', 'clear']],
+         ['font', ['strikethrough', 'superscript', 'subscript']],
+         ['fontsize', ['fontsize']],
+         ['color', ['color']],
+         ['para', ['ul', 'ol', 'paragraph']],
+         ['height', ['height']],
+         ['link', ['linkDialogShow', 'unlink']],
+         ['table', ['table']]
+
+                 ]
         });
     });
   </script>

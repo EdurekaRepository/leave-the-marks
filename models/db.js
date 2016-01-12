@@ -7,7 +7,7 @@ var SALT_WORK_FACTOR = 10;
 //var dbURI = 'mongodb://localhost/test';
 
 
-var dbURI = 'mongodb://jason:OracleJava1@ds037015.mongolab.com:37015/leavethemarks';
+var dbURI = 'mongodb://jason:OracleJava1@ds043615.mongolab.com:43615/leavethemarks';
 
 
 mongoose.connect(dbURI);
@@ -83,4 +83,5 @@ var storiesSchema = new mongoose.Schema({
 });
 
 // Build the User model
+
 mongoose.model( 'Story', storiesSchema,'stories');
